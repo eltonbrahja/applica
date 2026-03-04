@@ -65,7 +65,7 @@
 
     /* Badge Styles */
     .badge {
-        @apply px-2.5 py-1rounded-full text-xs font-medium border;
+        @apply px-2.5 py-1 rounded-full text-xs font-medium border;
     }
 
     .badge-success {
