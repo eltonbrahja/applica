@@ -61,13 +61,11 @@ export default function Materials() {
                 .upload(filePath, formData.file);
 
             if (uploadError) {
-                // Ignore bucket not found error for demo purposes since we haven't actively created it yet outside of instructions
-                console.error("Storage upload failed, fallback to fake URL for demo", uploadError);
+                throw new Error("Caricamento file fallito. Assicurati che il bucket 'materials' sia configurato nella dashboard Supabase Storage.");
             }
 
-            // In a real app we would get the public/signed URL. Fake it if bucket missing.
             const { data: publicUrlData } = supabase.storage.from('materials').getPublicUrl(filePath);
-            const fileUrl = uploadError ? `https://fake-supabase-storage.com/${filePath}` : publicUrlData.publicUrl;
+            const fileUrl = publicUrlData.publicUrl;
 
             // 3. Insert Database Record
             const payload = {

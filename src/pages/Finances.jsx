@@ -124,11 +124,10 @@ export default function Finances() {
         }
     }
 
-    // PDF Generation/Storage Simulation function (usually would call an Edge Function to actually build the PDF with precise layout)
     async function generatePdf(invoice) {
-        alert("Funzione PDF temporaneamente simulata in locale. Con un vero template PDF, Supabase Edge Functions genererebbe e salverebbe il PDF in Supabase Storage ritornando l'URL.");
+        alert("La generazione PDF richiede la configurazione di una Supabase Edge Function. La fattura verrà contrassegnata come 'Inviata'.");
         try {
-            const { error } = await supabase.from('invoices').update({ status: 'sent', pdf_url: `https://fake-supabase-storage.com/${invoice.id}.pdf` }).eq('id', invoice.id);
+            const { error } = await supabase.from('invoices').update({ status: 'sent' }).eq('id', invoice.id);
             if (error) throw error;
             fetchData();
         } catch (err) { console.error(err); }

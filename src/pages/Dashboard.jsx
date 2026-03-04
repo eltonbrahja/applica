@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { supabase } from '../lib/supabase';
@@ -179,9 +180,9 @@ export default function Dashboard() {
                 <h2 className={`text-lg font-semibold mb-4 ${isDark ? 'text-white' : 'text-surface-900'}`}>Azioni Rapide</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {quickActions.map((action, idx) => (
-                        <a
+                        <Link
                             key={action.label}
-                            href={action.href}
+                            to={action.href}
                             className="glass-card-hover p-5 flex items-center gap-4 group animate-slide-up"
                             style={{ animationDelay: `${(idx + 4) * 100}ms` }}
                         >
@@ -197,7 +198,7 @@ export default function Dashboard() {
                             <svg className={`w-5 h-5 ml-auto group-hover:text-primary-500 group-hover:translate-x-1 transition-all ${isDark ? 'text-dark-300' : 'text-surface-300'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>
