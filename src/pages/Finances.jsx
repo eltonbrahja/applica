@@ -62,7 +62,6 @@ export default function Finances() {
             setInvoices(mapped);
             setStats({ total: tot, pending: pend, paid: pd });
         } catch (err) {
-            console.error(err);
             setError('Impossibile caricare le fatture.');
         } finally {
             setLoading(false);
@@ -130,7 +129,7 @@ export default function Finances() {
             const { error } = await supabase.from('invoices').update({ status: 'sent' }).eq('id', invoice.id);
             if (error) throw error;
             fetchData();
-        } catch (err) { console.error(err); }
+        } catch (err) { /* handled by setError */ }
     }
 
     const getStatusStyle = (status) => {
@@ -252,7 +251,7 @@ export default function Finances() {
                                 </div>
                                 <div>
                                     <label className={`block text-sm font-medium mb-1.5 ${isDark ? 'text-dark-100' : 'text-surface-700'}`}>Importo (€)</label>
-                                    <input type="number" step="0.01" className="input-field" value={formData.amount} onChange={e => setFormData({ ...formData, amount: e.target.value })} required placeholder="0.00" />
+                                    <input type="number" step="0.01" min="0.01" className="input-field" value={formData.amount} onChange={e => setFormData({ ...formData, amount: e.target.value })} required placeholder="0.00" />
                                 </div>
                             </div>
                             <div>

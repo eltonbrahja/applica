@@ -42,7 +42,6 @@ export default function Patients() {
             if (error) throw error;
             setPatients(data || []);
         } catch (err) {
-            console.error(err);
             setError('Impossibile caricare i pazienti.');
         } finally { setLoading(false); }
     }

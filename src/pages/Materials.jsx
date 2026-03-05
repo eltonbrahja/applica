@@ -34,7 +34,6 @@ export default function Materials() {
             if (err) throw err;
             setMaterials(data || []);
         } catch (err) {
-            console.error(err);
             setError('Impossibile caricare i materiali.');
         } finally {
             setLoading(false);

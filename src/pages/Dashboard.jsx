@@ -46,7 +46,6 @@ export default function Dashboard() {
                     patients: patientsCount || 0,
                 });
             } catch (err) {
-                console.error(err);
                 setError('Impossibile caricare i dati della dashboard.');
             } finally {
                 setLoading(false);

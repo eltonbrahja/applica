@@ -33,7 +33,7 @@ export default function Login() {
             }
             navigate('/dashboard');
         } catch (err) {
-            setError(err.message || 'Errore durante l\'autenticazione');
+            setError('Credenziali non valide o errore di rete. Riprova.');
         } finally {
             setLoading(false);
         }
@@ -45,7 +45,7 @@ export default function Login() {
             if (error) throw error;
             // Note: OAuth redirects, so navigate won't happen here immediately
         } catch (err) {
-            setError(err.message || 'Errore con Google Login');
+            setError('Errore con Google Login. Riprova.');
         }
     }
 
@@ -95,6 +95,7 @@ export default function Login() {
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="input-field"
                                 placeholder="dottore@studio.it"
+                                autoComplete="email"
                             />
                         </div>
                         <div>
@@ -109,6 +110,7 @@ export default function Login() {
                                 className="input-field"
                                 placeholder="••••••••"
                                 minLength={6}
+                                autoComplete={isLogin ? 'current-password' : 'new-password'}
                             />
                         </div>
                         <button

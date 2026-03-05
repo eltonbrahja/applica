@@ -93,7 +93,6 @@ export default function Appointments() {
 
             setAppointments(mappedAppts);
         } catch (err) {
-            console.error(err);
             setError('Caricamento fallito.');
         } finally { setLoading(false); }
     }, [currentDate, view, user]);

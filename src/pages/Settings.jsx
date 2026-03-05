@@ -84,7 +84,6 @@ export default function Settings() {
                 setVacationDates(vDates || []);
             }
         } catch (err) {
-            console.error(err);
         } finally { setLoading(false); }
     }
 
