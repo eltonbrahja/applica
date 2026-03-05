@@ -136,7 +136,7 @@ export default function Finances() {
     const getStatusStyle = (status) => {
         switch (status) {
             case 'paid': return 'bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20';
-            case 'sent': return 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20';
+            case 'sent': return 'bg-primary-500/10 text-primary-600 dark:text-primary-400 border-primary-500/20';
             case 'draft': return isDark ? 'bg-dark-700/50 text-dark-300 border-dark-400/20' : 'bg-surface-100 text-surface-600 border-surface-200';
             default: return isDark ? 'bg-dark-700/50 text-dark-300' : 'bg-surface-100 text-surface-600';
         }
@@ -170,7 +170,7 @@ export default function Finances() {
                 </div>
                 <div className="glass-card p-5">
                     <p className={`text-sm mb-1 ${isDark ? 'text-dark-300' : 'text-surface-500'}`}>In Sospeso (Inviate)</p>
-                    <p className={`text-2xl font-bold text-blue-600 dark:text-blue-400`}>€{stats.pending.toLocaleString('it-IT')}</p>
+                    <p className={`text-2xl font-bold text-primary-600 dark:text-primary-400`}>€{stats.pending.toLocaleString('it-IT')}</p>
                 </div>
                 <div className="glass-card p-5">
                     <p className={`text-sm mb-1 ${isDark ? 'text-dark-300' : 'text-surface-500'}`}>Fatturato Globale</p>

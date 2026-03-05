@@ -106,7 +106,7 @@ export default function Materials() {
     });
 
     const getCategoryStyles = (cat) => {
-        if (cat === 'Esercizi') return 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20';
+        if (cat === 'Esercizi') return 'bg-primary-500/10 text-primary-600 dark:text-primary-400 border-primary-500/20';
         if (cat === 'Protocolli') return 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20';
         if (cat === 'Dispensa') return 'bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20';
         return 'bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20';

@@ -14,17 +14,12 @@
     }
 
     .dark {
-        --bg-color: #111827;
-        /* dark-900 */
+        --bg-color: #1a1612;
         --text-primary: #ffffff;
-        --text-secondary: #9ca3af;
-        /* dark-400 */
-        --border-color: rgba(156, 163, 175, 0.2);
-        /* dark-400/20 */
-        --card-bg: rgba(31, 41, 55, 0.8);
-        /* dark-800/80 */
-        --card-hover: rgba(55, 65, 81, 0.9);
-        /* dark-700/90 */
+        --text-secondary: #8a7e6e;
+        --border-color: rgba(138, 126, 110, 0.2);
+        --card-bg: rgba(42, 37, 32, 0.8);
+        --card-hover: rgba(61, 54, 46, 0.9);
         --shadow-color: rgba(0, 0, 0, 0.3);
     }
 
@@ -72,7 +67,7 @@
     }
 
     .badge-info {
-        @apply badge bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20;
+        @apply badge bg-primary-500/10 text-primary-600 dark:text-primary-400 border-primary-500/20;
     }
 
     /* Custom Scrollbar */
