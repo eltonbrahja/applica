@@ -224,7 +224,7 @@ export default function Settings() {
             <div className={`flex gap-2 p-1.5 rounded-2xl ${isDark ? 'bg-dark-800' : 'bg-surface-100'} overflow-x-auto hide-scrollbar`}>
                 {tabs.map(t => (
                     <button key={t.id} onClick={() => { setActiveTab(t.id); setError(''); setSuccess(''); }}
-                        className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all whitespace-nowrap flex-1 lg:flex-none text-center ${activeTab === t.id
+                        className={`px-3 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap text-center ${activeTab === t.id
                             ? (isDark ? 'bg-dark-700 text-white shadow-sm' : 'bg-white text-surface-900 shadow-sm')
                             : (isDark ? 'text-dark-300 hover:text-white hover:bg-dark-700/50' : 'text-surface-500 hover:text-surface-900 hover:bg-white/50')}`}>
                         {t.label}
@@ -232,7 +232,7 @@ export default function Settings() {
                 ))}
             </div>
 
-            <div className="glass-card p-6 md:p-8 animate-slide-up">
+            <div className="glass-card p-4 sm:p-6 md:p-8 animate-slide-up">
 
                 {/* ── PROFILE TAB ── */}
                 {activeTab === 'profile' && (
@@ -298,7 +298,7 @@ export default function Settings() {
                             <p className={`text-sm mb-6 ${isDark ? 'text-dark-300' : 'text-surface-500'}`}>Personalizza il tuo orario per ogni giorno della settimana.</p>
                             <div className="space-y-3">
                                 {Object.entries(DAY_LABELS).map(([key, label]) => (
-                                    <div key={key} className={`flex flex-col sm:flex-row sm:items-center gap-3 p-4 rounded-xl border transition-colors ${workingHours[key]?.enabled
+                                    <div key={key} className={`flex flex-col sm:flex-row sm:items-center gap-3 p-3 sm:p-4 rounded-xl border transition-colors ${workingHours[key]?.enabled
                                         ? (isDark ? 'border-primary-500/20 bg-primary-500/5' : 'border-primary-200 bg-primary-50/50')
                                         : (isDark ? 'border-dark-400/15 bg-dark-800/30' : 'border-surface-200 bg-surface-50')}`}>
                                         <div className="flex items-center gap-3 min-w-[140px]">
@@ -309,10 +309,10 @@ export default function Settings() {
                                             <span className={`font-medium text-sm ${workingHours[key]?.enabled ? (isDark ? 'text-white' : 'text-surface-900') : (isDark ? 'text-dark-400' : 'text-surface-400')}`}>{label}</span>
                                         </div>
                                         {workingHours[key]?.enabled && (
-                                            <div className="flex items-center gap-2 ml-auto">
-                                                <input type="time" className="input-field !py-2 !px-3 w-[120px] text-sm" value={workingHours[key]?.start || '09:00'} onChange={e => updateDay(key, 'start', e.target.value)} />
+                                            <div className="flex items-center gap-2 sm:ml-auto">
+                                                <input type="time" className="input-field !py-2 !px-3 w-[110px] sm:w-[120px] text-sm" value={workingHours[key]?.start || '09:00'} onChange={e => updateDay(key, 'start', e.target.value)} />
                                                 <span className={`text-sm ${isDark ? 'text-dark-300' : 'text-surface-500'}`}>—</span>
-                                                <input type="time" className="input-field !py-2 !px-3 w-[120px] text-sm" value={workingHours[key]?.end || '18:00'} onChange={e => updateDay(key, 'end', e.target.value)} />
+                                                <input type="time" className="input-field !py-2 !px-3 w-[110px] sm:w-[120px] text-sm" value={workingHours[key]?.end || '18:00'} onChange={e => updateDay(key, 'end', e.target.value)} />
                                             </div>
                                         )}
                                         {!workingHours[key]?.enabled && (

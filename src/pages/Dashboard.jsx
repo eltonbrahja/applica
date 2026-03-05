@@ -178,7 +178,7 @@ export default function Dashboard() {
             {/* Quick Actions */}
             <div>
                 <h2 className={`text-lg font-semibold mb-4 ${isDark ? 'text-white' : 'text-surface-900'}`}>Azioni Rapide</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                     {quickActions.map((action, idx) => (
                         <Link
                             key={action.label}
@@ -211,7 +211,7 @@ export default function Dashboard() {
                     </svg>
                     <h3 className={`font-semibold ${isDark ? 'text-white' : 'text-surface-900'}`}>Stato Sicurezza Supabase</h3>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                     <div className={`flex items-center gap-3 p-3 rounded-xl ${isDark ? 'bg-dark-700/50' : 'bg-surface-50'}`}>
                         <span className="badge-success">Attivo</span>
                         <span className={`text-sm ${isDark ? 'text-dark-100' : 'text-surface-600'}`}>Row Level Security (RLS)</span>

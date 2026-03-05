@@ -173,8 +173,8 @@ export default function Patients() {
             {error && <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 dark:text-red-400 text-sm">{error}</div>}
 
             {/* Filter Bar */}
-            <div className="flex flex-col md:flex-row gap-4">
-                <div className={`glass-card p-4 flex items-center gap-3 flex-1`}>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <div className={`glass-card p-3 sm:p-4 flex items-center gap-3 flex-1`}>
                     <svg className={`w-5 h-5 ${isDark ? 'text-dark-400' : 'text-surface-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                     <input type="text" placeholder="Cerca per nome, email, telefono, codice fiscale..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)}
                         className={`bg-transparent border-none focus:ring-0 w-full text-sm outline-none ${isDark ? 'text-white placeholder-dark-400' : 'text-surface-900 placeholder-surface-400'}`} />
@@ -192,7 +192,7 @@ export default function Patients() {
             </div>
 
             {/* Patient Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 {filteredPatients.map(patient => (
                     <div key={patient.id} className="glass-card-hover flex flex-col">
                         <div className="p-5">

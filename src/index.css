@@ -113,4 +113,51 @@
     .nav-link-active {
         @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 bg-gradient-to-r from-primary-600/10 to-transparent border-l-2 border-primary-500 text-primary-600 dark:text-primary-400;
     }
+
+    /* Hide scrollbar utility */
+    .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Mobile-friendly touch targets */
+    @media (max-width: 640px) {
+
+        .btn-primary,
+        .btn-secondary,
+        .btn-danger {
+            @apply px-3 py-2.5 text-sm min-h-[44px];
+        }
+
+        .input-field {
+            @apply py-3 text-base;
+            /* Prevents iOS zoom on focus */
+            font-size: 16px;
+        }
+
+        .glass-card {
+            @apply rounded-xl;
+        }
+
+        .page-title {
+            @apply text-xl;
+        }
+
+        /* Stack header actions vertically on mobile */
+        .nav-link,
+        .nav-link-active {
+            @apply py-3.5;
+        }
+    }
+
+    /* Smooth mobile scrolling */
+    @supports (-webkit-overflow-scrolling: touch) {
+        main {
+            -webkit-overflow-scrolling: touch;
+        }
+    }
 }
