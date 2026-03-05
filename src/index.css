@@ -4,18 +4,13 @@
 
 @layer base {
     :root {
-        --bg-color: #f8fafc;
-        /* surface-50 */
-        --text-primary: #0f172a;
-        /* surface-900 */
-        --text-secondary: #64748b;
-        /* surface-500 */
-        --border-color: #e2e8f0;
-        /* surface-200 */
+        --bg-color: #f7f3e6;
+        --text-primary: #4b4234;
+        --text-secondary: #7a7062;
+        --border-color: #e0daca;
         --card-bg: #ffffff;
-        --card-hover: #f1f5f9;
-        /* surface-100 */
-        --shadow-color: rgba(0, 0, 0, 0.05);
+        --card-hover: #f0ebe0;
+        --shadow-color: rgba(75, 66, 52, 0.06);
     }
 
     .dark {

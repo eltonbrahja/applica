@@ -4,9 +4,7 @@ const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
     const [theme, setTheme] = useState(() => {
-        const savedTheme = localStorage.getItem('applica-theme');
-        if (savedTheme) return savedTheme;
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        return localStorage.getItem('applica-theme') || 'light';
     });
 
     useEffect(() => {
