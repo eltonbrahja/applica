@@ -12,6 +12,7 @@ export default function Dashboard() {
     const [stats, setStats] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [doctorName, setDoctorName] = useState('');
 
     useEffect(() => {
         async function fetchDashboardData() {
@@ -51,7 +52,24 @@ export default function Dashboard() {
                 setLoading(false);
             }
         }
-        if (user) fetchDashboardData();
+        fetchDashboardData();
+
+        async function fetchDoctorName() {
+            if (!user) return; // Ensure user is available before fetching doctor name
+            try {
+                const { data } = await supabase
+                    .from('psychologists')
+                    .select('first_name, last_name, gender')
+                    .eq('supabase_tenant_id', user.id)
+                    .single();
+                if (data && (data.first_name || data.last_name)) {
+                    const title = data.gender === 'Femmina' ? 'Dott.ssa' : 'Dott.';
+                    const fullName = [data.first_name, data.last_name].filter(Boolean).join(' ');
+                    setDoctorName(`${title} ${fullName}`);
+                }
+            } catch (err) { /* fallback to email */ }
+        }
+        fetchDoctorName();
     }, [user]);
 
     const currentHour = new Date().getHours();
@@ -142,7 +160,7 @@ export default function Dashboard() {
             {/* Header */}
             <div>
                 <h1 className="page-title">
-                    {greeting}, <span className="text-gradient">{user?.email ? user.email.split('@')[0] : 'Dottore'}</span>
+                    {greeting}, <span className="text-gradient">{doctorName || (user?.email ? user.email.split('@')[0] : 'Dottore')}</span>
                 </h1>
                 <p className={`mt-2 ${isDark ? 'text-dark-200' : 'text-surface-500'}`}>
                     Ecco un riepilogo del tuo studio su Applica.

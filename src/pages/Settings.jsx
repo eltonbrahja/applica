@@ -32,7 +32,7 @@ export default function Settings() {
 
     // Profile data
     const [profile, setProfile] = useState({
-        first_name: '', last_name: '', phone: '', specialization: '',
+        first_name: '', last_name: '', phone: '', gender: '', specialization: '',
         license_number: '', studio_name: '', studio_address: ''
     });
 
@@ -65,6 +65,7 @@ export default function Settings() {
                     first_name: psych.first_name || '',
                     last_name: psych.last_name || '',
                     phone: psych.phone || '',
+                    gender: psych.gender || '',
                     specialization: psych.specialization || '',
                     license_number: psych.license_number || '',
                     studio_name: psych.studio_name || '',
@@ -97,6 +98,7 @@ export default function Settings() {
                     first_name: profile.first_name || null,
                     last_name: profile.last_name || null,
                     phone: profile.phone || null,
+                    gender: profile.gender || null,
                     specialization: profile.specialization || null,
                     license_number: profile.license_number || null,
                     studio_name: profile.studio_name || null,
@@ -255,6 +257,14 @@ export default function Settings() {
                                 <div>
                                     <label className={labelClass}>Email</label>
                                     <input type="email" value={user?.email || ''} readOnly className="input-field bg-opacity-50 opacity-70 cursor-not-allowed" />
+                                </div>
+                                <div>
+                                    <label className={labelClass}>Genere</label>
+                                    <select className="input-field" value={profile.gender} onChange={e => setProfile({ ...profile, gender: e.target.value })}>
+                                        <option value="">Seleziona...</option>
+                                        <option value="Maschio">Maschio</option>
+                                        <option value="Femmina">Femmina</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

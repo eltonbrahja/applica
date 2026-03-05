@@ -158,6 +158,7 @@ ALTER TABLE public.psychologists ADD COLUMN IF NOT EXISTS specialization TEXT;
 ALTER TABLE public.psychologists ADD COLUMN IF NOT EXISTS license_number TEXT;
 ALTER TABLE public.psychologists ADD COLUMN IF NOT EXISTS studio_name TEXT;
 ALTER TABLE public.psychologists ADD COLUMN IF NOT EXISTS studio_address TEXT;
+ALTER TABLE public.psychologists ADD COLUMN IF NOT EXISTS gender TEXT;
 ALTER TABLE public.psychologists ADD COLUMN IF NOT EXISTS working_hours JSONB DEFAULT '{
     "monday":    {"enabled": true,  "start": "09:00", "end": "18:00"},
     "tuesday":   {"enabled": true,  "start": "09:00", "end": "18:00"},
